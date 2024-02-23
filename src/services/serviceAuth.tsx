@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 // Hàm gọi API có xác thực
-const callApi = async (endpoint: string, method: string, data?: any) => {
+const callApi = async (endpoint: string, method: string, data?: []) => {
   try {
     const token = "YOUR_AUTH_TOKEN"; // Lấy token từ Redux hoặc Context
     const headers = {

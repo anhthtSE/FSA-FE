@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from "@mui/material";
+import { Toolbar } from "@mui/material";
 import * as React from "react";
 import colorConfigs from "../../configs/colorConfigs";
 

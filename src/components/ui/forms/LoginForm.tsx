@@ -5,7 +5,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import colorConfigs from "../../../configs/colorConfigs";
 import ButtonUI from "../button/ButtonUI";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -18,9 +18,6 @@ const inputStyle = {
 };
 
 const LoginForm = () => {
-  const userRef = useRef();
-  const errRef = useRef();
-
   const navigation = useNavigate();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
@@ -55,7 +52,7 @@ const LoginForm = () => {
     e.preventDefault();
     if (username && password) {
       toast.success("Login successfully!");
-      navigation("/home");
+      navigation("/dashboard");
     }
   };
 

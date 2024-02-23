@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Button,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Avatar, Box, Toolbar, Typography } from "@mui/material";
 import * as React from "react";
 import assets from "../../assets";
 import colorConfigs from "../../configs/colorConfigs";
