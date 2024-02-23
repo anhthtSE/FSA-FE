@@ -6,7 +6,6 @@ import { useState } from "react";
 import menuData from "./data/menuData";
 import SiderbarIcon from "./SiderbarIcon";
 import SiderbarItem from "./SiderbarItem";
-import { Link } from "react-router-dom";
 import Show from "../../utils/Show";
 import SiderbarItemCollapse from "./SiderbarItemCollapse";
 

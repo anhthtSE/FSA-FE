@@ -9,7 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import { ExpandLessOutlined, ExpandMoreOutlined } from "@mui/icons-material";
-import SiderbarItem from "./SiderbarItem";
 import { Link } from "react-router-dom";
 
 export interface Props {
