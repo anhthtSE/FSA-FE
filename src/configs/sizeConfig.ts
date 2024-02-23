@@ -1,6 +1,6 @@
 const sizeConfig = {
   siderbar: {
-    width: "20vh",
+    width: "auto",
   },
 };
 

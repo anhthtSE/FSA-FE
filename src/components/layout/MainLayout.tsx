@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Siderbar from "../common/Siderbar";
+import Siderbar from "../common";
 import { Box } from "@mui/material";
 
 const MainLayout = () => {
