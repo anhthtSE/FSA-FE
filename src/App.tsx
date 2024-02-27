@@ -5,8 +5,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes";
-import { useState } from "react";
-import User from "./data/User";
 
 function App() {
   const globalStyles = {
@@ -16,14 +14,14 @@ function App() {
     },
   };
 
-  const [user] = useState<User>({
-    isLogged: true,
-    name: "anh",
-    user: {
-      username: "anhthtse151299@gmail.com",
-      password: "1",
-    },
-  });
+  // const [user] = useState<User>({
+  //   isLogged: true,
+  //   name: "anh",
+  //   user: {
+  //     username: "anhthtse151299@gmail.com",
+  //     password: "1",
+  //   },
+  // });
 
   return (
     <Provider store={store}>
