@@ -1,6 +1,6 @@
 import { Box, Divider, Tab, Tabs } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import CustomTabPanel from "../../../components/ui/tab/CustomTabPanel";
 import SyllabusDetailHeader from "./DetailHeader";
 import SyllabusDetailInformation from "./DetailInformation";
@@ -23,10 +23,10 @@ const tabs = [
     },
 ];
 const SyllabusPage = () => {
-    const navigation = useNavigate();
+    // const navigation = useNavigate();
     const [value, setValue] = React.useState(1);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
     return (
