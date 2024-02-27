@@ -1,12 +1,12 @@
 import { Box, List, ListItemButton } from "@mui/material";
-import sizeConfig from "../../configs/sizeConfig";
-import colorConfigs from "../../configs/colorConfigs";
+import sizeConfig from "../../../configs/sizeConfig";
+import colorConfigs from "../../../configs/colorConfigs";
 import { Clear, Menu } from "@mui/icons-material";
 import { useState } from "react";
 import menuData from "./data/menuData";
 import SiderbarIcon from "./SiderbarIcon";
 import SiderbarItem from "./SiderbarItem";
-import Show from "../../utils/Show";
+import Show from "../../../utils/Show";
 import SiderbarItemCollapse from "./SiderbarItemCollapse";
 
 const Siderbar = () => {
@@ -34,10 +34,19 @@ const Siderbar = () => {
               />
             </Show.When>
             <Show.When isTrue={open && !!sidebar.child}>
-              <SiderbarItemCollapse key={index} item={sidebar} />
+              <SiderbarItemCollapse
+                key={index}
+                item={sidebar}
+                onClick={() => setOpen(!open)}
+              />
             </Show.When>
             <Show.When isTrue={open && !sidebar.child}>
-              <SiderbarItem open={open} key={index} item={sidebar} />
+              <SiderbarItem
+                open={open}
+                key={index}
+                item={sidebar}
+                onClick={() => setOpen(!open)}
+              />
             </Show.When>
           </Show>
         ))}

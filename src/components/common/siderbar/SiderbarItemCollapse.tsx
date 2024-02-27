@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { menuType } from "./data/config";
-import Show from "../../utils/Show";
+import Show from "../../../utils/Show";
 import {
   Collapse,
   ListItemButton,
@@ -13,9 +13,10 @@ import { Link } from "react-router-dom";
 
 export interface Props {
   item: menuType;
+  onClick?: () => void;
 }
 
-const SiderbarItemCollapse = ({ item }: Props) => {
+const SiderbarItemCollapse = ({ item, onClick }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -26,7 +27,7 @@ const SiderbarItemCollapse = ({ item }: Props) => {
           component={Link}
           to={item.path as string}
         >
-          <ListItemIcon>{item.icon}</ListItemIcon>
+          <ListItemIcon onClick={onClick}>{item.icon}</ListItemIcon>
           <ListItemText
             disableTypography
             primary={<Typography>{item.displayText}</Typography>}
@@ -49,6 +50,7 @@ const SiderbarItemCollapse = ({ item }: Props) => {
           ))}
         </Collapse>
       </Show.When>
+      <Show.Else>{null}</Show.Else>
     </Show>
   );
 };

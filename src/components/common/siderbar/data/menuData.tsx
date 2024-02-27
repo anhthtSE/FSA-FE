@@ -76,6 +76,10 @@ const menuData: menuType[] = [
         displayText: "User List",
         path: "/dashboard/management",
       },
+      {
+        displayText: "User permission",
+        path: "/dashboard/management/premission",
+      },
     ],
   },
   {

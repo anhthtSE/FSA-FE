@@ -1,7 +1,7 @@
 import { menuType } from "./data/config";
 import { ListItemButton } from "@mui/material";
 import { Link } from "react-router-dom";
-import Show from "../../utils/Show";
+import Show from "../../../utils/Show";
 
 interface Props {
   item: menuType;

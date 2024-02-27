@@ -12,6 +12,8 @@ import MaterialsPage from "../pages/material/MaterialsPage";
 import SettingPage from "../pages/setting/SettingPage";
 import CreateProgramPage from "../pages/program/CreateProgramPage";
 import CreateSyllabusPage from "../pages/syllabus/CreateSyllabusPage";
+import CreateClassPage from "../pages/class/CreateClassPage";
+import UserManagementPermissionPage from "../pages/manageUser/UserManagementPermissionPage";
 
 const routes = createBrowserRouter([
   {
@@ -51,12 +53,20 @@ const routes = createBrowserRouter([
             element: <ClassPage />,
           },
           {
+            path: "class/create",
+            element: <CreateClassPage />,
+          },
+          {
             path: "training",
             element: <CalendarPage />,
           },
           {
             path: "management",
             element: <UserManagementPage />,
+          },
+          {
+            path: "management/premission",
+            element: <UserManagementPermissionPage />,
           },
           {
             path: "material",

@@ -1,59 +1,105 @@
 import {
+  Alert,
   IconButton,
   InputAdornment,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import colorConfigs from "../../../configs/colorConfigs";
 import ButtonUI from "../button/ButtonUI";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Show from "../../../utils/Show";
+import AuthContext from "../../../hooks/context/AppContext";
 
 const inputStyle = {
   width: "100%",
   bgcolor: colorConfigs.input.bg,
 };
 
+const isEmail = (email: string) =>
+  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+
 const LoginForm = () => {
   const navigation = useNavigate();
+  const { setAuth } = useContext(AuthContext);
+
+  //use Ref
+  const userRef = useRef<HTMLInputElement>(null);
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [usernameError, setUsernameError] = useState<string | null>(null);
-  const [passwordError, setPasswordError] = useState<string | null>(null);
 
+  //inputs errors
+  const [usernameError, setUsernameError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
+
+  //Overall Form Validity
+  const [formValid, setFormValid] = useState<string | null>(null);
+
+  // Handles Display and Hide Password
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
   };
 
-  const onBlurUsername = () => {
-    if (!username) {
-      setUsernameError("Username is required");
-    } else {
-      setUsernameError(null);
+  //useEffect
+  useEffect(() => {
+    userRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (formValid) {
+      setUsernameError("");
+      setPasswordError("");
     }
+  }, [formValid]);
+
+  useEffect(() => {
+    if (usernameError || passwordError) {
+      setFormValid("");
+    }
+  }, [usernameError, passwordError]);
+
+  // Validation for onBlur
+  const onBlurUsername = () => {
+    console.log(isEmail(username));
+
+    if (!username) {
+      setUsernameError("Username is required!");
+      return;
+    }
+    if (!isEmail(username)) {
+      setUsernameError("Invalid username!");
+      return;
+    }
+    setUsernameError("");
   };
   const onBlurPassword = () => {
     if (!password) {
-      setPasswordError("Password is required");
-    } else {
-      setPasswordError(null);
+      setPasswordError("Password is required!");
+      return;
     }
+    setPasswordError("");
   };
 
-  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (username && password) {
-      toast.success("Login successfully!");
-      navigation("/dashboard");
+  const handleSubmit = async () => {
+    if (!username && !password) {
+      setFormValid("Username or password is invalid!");
+      return;
     }
+    toast.success("Login successfully!");
+    navigation("/dashboard");
+    setAuth({ username });
+    localStorage.setItem("auth", JSON.stringify({ username }));
+    setFormValid(null);
   };
 
   return (
@@ -61,16 +107,22 @@ const LoginForm = () => {
       <TextField
         sx={inputStyle}
         name="username"
-        placeholder="Enter Username"
+        placeholder="Enter Email"
         variant="outlined"
         error={!!usernameError}
-        helperText={usernameError}
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         onBlur={onBlurUsername}
+        ref={userRef}
         fullWidth
         required
       />
+      <Show>
+        <Show.When isTrue={!!usernameError}>
+          <Alert severity="error">{usernameError}</Alert>
+        </Show.When>
+      </Show>
+
       <TextField
         sx={inputStyle}
         name="password"
@@ -94,11 +146,20 @@ const LoginForm = () => {
         fullWidth
         required
         error={!!passwordError}
-        helperText={passwordError}
         onBlur={onBlurPassword}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      <Show>
+        <Show.When isTrue={!!passwordError}>
+          <Alert severity="error">{passwordError}</Alert>
+        </Show.When>
+      </Show>
+      <Show>
+        <Show.When isTrue={!!formValid}>
+          <Alert severity="error">{formValid}</Alert>
+        </Show.When>
+      </Show>
       <Typography
         variant="body2"
         sx={{

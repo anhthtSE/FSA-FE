@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { menuType } from "./data/config";
-import Show from "../../utils/Show";
+import Show from "../../../utils/Show";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -20,7 +20,7 @@ const SiderbarItem = (props: Props) => {
     <ListItemButton component={Link} to={props.item.path as string}>
       <Show>
         <Show.When isTrue={!!(props.item.path || props.item.child)}>
-          <ListItemIcon>{props.item.icon}</ListItemIcon>
+          <ListItemIcon onClick={props.onClick}>{props.item.icon}</ListItemIcon>
           <Collapse in={props.open} orientation="horizontal" timeout="auto">
             <ListItemText>
               <Typography>{props.item.displayText}</Typography>

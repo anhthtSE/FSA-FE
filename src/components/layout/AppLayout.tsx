@@ -1,5 +1,5 @@
-import Topbar from "../common/Topbar";
-import Botbar from "../common/Botbar";
+import Topbar from "../common/topbar/Topbar";
+import Botbar from "../common/botbar/Botbar";
 import { Outlet } from "react-router-dom";
 import { Box } from "@mui/material";
 

@@ -1,6 +1,6 @@
 import { Toolbar } from "@mui/material";
 import * as React from "react";
-import colorConfigs from "../../configs/colorConfigs";
+import colorConfigs from "../../../configs/colorConfigs";
 
 export interface IBotbarProps {}
 
@@ -10,7 +10,7 @@ export default class Botbar extends React.Component<IBotbarProps> {
       <Toolbar
         sx={{
           width: "100%",
-          position: "fixed",
+          position: "static",
           placeContent: "center",
           boxShadow: "unset",
           backgroundColor: colorConfigs.mainBg.bg,
