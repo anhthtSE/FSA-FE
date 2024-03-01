@@ -6,7 +6,10 @@ export interface Props extends TypographyProps {
 
 const TypographyUI = (props: Props) => {
   return (
-    <Typography variant="h3" sx={{ fontWeight: "Inter" }}>
+    <Typography
+      variant="h3"
+      sx={{ fontWeight: "Inter", letterSpacing: "0.3rem" }}
+    >
       {props.title}
     </Typography>
   );

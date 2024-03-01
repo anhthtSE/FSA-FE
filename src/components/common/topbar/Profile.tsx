@@ -15,7 +15,7 @@ const Profile = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    const storedAuth = localStorage.getItem("auth");
+    const storedAuth = sessionStorage.getItem("auth");
     if (storedAuth) {
       setAuth(JSON.parse(storedAuth));
     }

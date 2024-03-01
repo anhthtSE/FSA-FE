@@ -15,6 +15,7 @@ const colorConfigs = {
   },
   button: {
     bg: "#2D3748",
+    primaryBg: "#D45B13",
     colors: "#fff",
     hoverBg: "#565e6c",
     hoverColors: "#fff",
@@ -23,6 +24,14 @@ const colorConfigs = {
   },
   input: {
     bg: "#F1F1F1",
+  },
+  box: {
+    bg: "#474747",
+    color: "#fff",
+  },
+  table: {
+    bg: "#2D3748",
+    color: "#fff",
   },
 };
 

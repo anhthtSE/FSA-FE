@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import AppLayout from "../components/layout/AppLayout";
 import MainLayout from "../components/layout/MainLayout";
 import LoginPage from "../pages/login/LoginPage";
@@ -15,7 +15,7 @@ import CreateSyllabusPage from "../pages/syllabus/CreateSyllabusPage";
 import CreateClassPage from "../pages/class/CreateClassPage";
 import UserManagementPermissionPage from "../pages/manageUser/UserManagementPermissionPage";
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
   {
     path: "/",
     element: <AppLayout />,

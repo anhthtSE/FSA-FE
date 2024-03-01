@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import InputSearch from "../../components/ui/input/InputSearch";
 
 const HomePage = () => {
   const [count, setCount] = useState<number>(0);
@@ -15,6 +16,7 @@ const HomePage = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       count: {countRef.current}
       <button onClick={handleIncremment}>Increment</button>
+      <InputSearch />
     </div>
   );
 };

@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ExpandLessOutlined, ExpandMoreOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import sizeConfig from "../../../configs/sizeConfig";
 
 export interface Props {
   item: menuType;
@@ -23,6 +24,7 @@ const SiderbarItemCollapse = ({ item, onClick }: Props) => {
     <Show>
       <Show.When isTrue={!!(item.child && item.path)}>
         <ListItemButton
+          sx={{ width: sizeConfig.siderbar.width }}
           onClick={() => setOpen(!open)}
           component={Link}
           to={item.path as string}
@@ -37,8 +39,8 @@ const SiderbarItemCollapse = ({ item, onClick }: Props) => {
         <Collapse in={open} timeout="auto">
           {item.child?.map((sidebar, index) => (
             <ListItemButton
+              sx={{ width: sizeConfig.siderbar.width, paddingLeft: "4rem" }}
               key={index}
-              sx={{ width: "80%" }}
               component={Link}
               to={sidebar.path as string}
             >
