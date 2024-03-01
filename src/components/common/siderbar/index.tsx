@@ -12,14 +12,14 @@ import SiderbarItemCollapse from "./SiderbarItemCollapse";
 const Siderbar = () => {
   const [open, setOpen] = useState<boolean>(false);
 
+  const styleBox = {
+    width: !open ? "auto" : sizeConfig.siderbar.width,
+    height: "100vh",
+    bgcolor: colorConfigs.sidebar.bg,
+  };
+
   return (
-    <Box
-      sx={{
-        width: sizeConfig.siderbar.width,
-        height: "100vh",
-        bgcolor: colorConfigs.sidebar.bg,
-      }}
-    >
+    <Box sx={styleBox}>
       <List>
         <ListItemButton onClick={() => setOpen(!open)}>
           {!open ? <Menu /> : <Clear />}

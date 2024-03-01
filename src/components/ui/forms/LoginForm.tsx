@@ -98,7 +98,7 @@ const LoginForm = () => {
     toast.success("Login successfully!");
     navigation("/dashboard");
     setAuth({ username });
-    localStorage.setItem("auth", JSON.stringify({ username }));
+    sessionStorage.setItem("auth", JSON.stringify({ username }));
     setFormValid(null);
   };
 

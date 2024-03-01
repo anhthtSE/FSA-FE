@@ -7,7 +7,7 @@ const AppLayout = () => {
   return (
     <>
       <Topbar />
-      <Box>
+      <Box height="100vh">
         <Outlet />
       </Box>
       <Botbar />

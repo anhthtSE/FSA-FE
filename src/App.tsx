@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes";
+import { useEffect } from "react";
 
 function App() {
   const globalStyles = {
@@ -13,6 +14,11 @@ function App() {
       textDecoration: "none",
     },
   };
+  useEffect(() => {
+    if (window.location.pathname === "/" && sessionStorage.getItem("auth")) {
+      sessionStorage.removeItem("auth");
+    }
+  }, []);
 
   // const [user] = useState<User>({
   //   isLogged: true,
