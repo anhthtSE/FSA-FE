@@ -14,6 +14,7 @@ import CreateProgramPage from "../pages/program/CreateProgramPage";
 import CreateSyllabusPage from "../pages/syllabus/CreateSyllabusPage";
 import CreateClassPage from "../pages/class/CreateClassPage";
 import UserManagementPermissionPage from "../pages/manageUser/UserManagementPermissionPage";
+import SyllabusDetailPage from "../pages/syllabus/Detail/SyllabusDetailPage";
 
 const routes = createHashRouter([
   {
@@ -39,6 +40,10 @@ const routes = createHashRouter([
           {
             path: "syllabus/create",
             element: <CreateSyllabusPage />,
+          },
+          {
+            path: "syllabus/Detail",
+            element: <SyllabusDetailPage />,
           },
           {
             path: "program",
